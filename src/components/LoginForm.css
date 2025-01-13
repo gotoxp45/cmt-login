@@ -1,186 +1,135 @@
-/* Main container styles with animated gradient background */
+/* Background gradient */
 .login-container {
-    background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #6c5ce7);
-    background-size: 300% 300%;
-    animation: gradientShift 12s ease infinite;
-    min-height: 100vh;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  /* Gradient animation for background */
-  @keyframes gradientShift {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-  
-  /* Decorative floating circles in background for depth */
-  .login-container::before,
-  .login-container::after {
-    content: '';
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    animation: float 10s infinite;
-  }
-  
-  /* Positioning for decorative circles */
-  .login-container::before {
-    top: -250px;
-    right: -250px;
-  }
-  
-  .login-container::after {
-    bottom: -250px;
-    left: -250px;
-    animation-delay: -5s;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+  min-height: 100vh; /* Ensures the container spans the entire viewport height */
+  background: linear-gradient(120deg, #ff6b6b, #45b7d1, #6c5ce7);
+  background-size: 200% 200%;
+  animation: gradientShift 10s ease infinite;
+  font-family: Arial, sans-serif;
+}
 
-    /* Animation for floating effect */
-  @keyframes float {
-    0%, 100% {
-      transform: translate(0, 0) scale(1);
-    }
-    50% {
-      transform: translate(30px, 30px) scale(1.2);
-    }
+/* Gradient animation */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
   }
-  
-  /* Card styles with glassmorphism effect */
-  .login-card {
-    backdrop-filter: blur(20px);
-    background: rgba(255, 255, 255, 0.85);
-    border-radius: 20px;
-    transition: all 0.3s ease-in-out;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  50% {
+    background-position: 100% 50%;
   }
-  
-  /* Interactive hover effect for card */
-  .login-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  100% {
+    background-position: 0% 50%;
   }
-  
-  /* Card header with shimmer effect */
-  .card-header {
-    background: rgba(13, 110, 253, 0.9) !important;
-    border-radius: 20px 20px 0 0 !important;
-    border-bottom: none;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  /* Shimmer animation for header */
-  .card-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 200%;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.2),
-      transparent
-    );
-    animation: shimmer 3s infinite;
-  }
-  
-  /* Shimmer effect animation */
-  @keyframes shimmer {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(100%);
-    }
-  }
-  
-  /* Form input styling */
-  .form-control {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(13, 110, 253, 0.2);
-    transition: all 0.3s ease;
-  }
-  
+}
 
-  .form-control:focus {
-    background: white;
-    border-color: #0d6efd;
-    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-  }
+/* Login card styling */
+.login-card {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
 
-  /* Submit button with gradient */  
-  .btn-primary {
-    background: linear-gradient(45deg, #0d6efd, #0099ff);
-    border: none;
-    padding: 12px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-  }
+/* Header and text styling */
+.login-header {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.login-subtext {
+  color: #777;
+  margin-bottom: 1.5rem;
+}
+
+/* Form styling */
+.form-group {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #6c5ce7;
+  outline: none;
+  box-shadow: 0 0 5px rgba(108, 92, 231, 0.5);
+}
+
+/* Options and links */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.checked {
+  display: flex;
+  align-items: center; /* Positions checkbox and label horizontally */
+}
+
+.forgot-password {
+  color: #6c5ce7;
+  text-decoration: none;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* Button styling */
+.login-button {
+  width: 100%;
+  padding: 0.8rem;
+  background: linear-gradient(45deg, #6c5ce7, #45b7d1);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login-button:hover {
+  background: linear-gradient(45deg, #45b7d1, #6c5ce7);
+}
+
+/* Signup link */
+.signup-link {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.signup-link a {
+  color: #6c5ce7;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
   
-  /* Button shimmer effect */
-  .btn-primary::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.2),
-      transparent
-    );
-    transition: 0.5s;
-  }
-  
-  /* Button hover interactions */
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.2), 0 3px 6px rgba(0, 0, 0, 0.12);
-  }
-  
-  .btn-primary:hover::before {
-    left: 100%;
-  }
-  
-  /* Checkbox styling */
-  .form-check-input:checked {
-    background-color: #0d6efd;
-    border-color: #0d6efd;
-  }
-  
-/* User icon animation */
-  .fa-user-circle {
-    animation: pulse 2s infinite;
-  }
-  
-  /* Pulse animation for user icon */
-  @keyframes pulse {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.05);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
